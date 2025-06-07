@@ -67,7 +67,7 @@ def main():
         notificaion = WebhookNotifier(cfg["webhooks"]["webhook_url"])
 
         # Notificación de inicio
-        notificaion.send_notification("Inicio del proceso tipo de cambio PayPal")
+        #notificaion.send_notification("Inicio del proceso tipo de cambio PayPal")
 
         # Ejecución de los bots
         for bot_name, bot_function in [
@@ -80,7 +80,7 @@ def main():
             
             if resultado:
                 logger.info(f"{bot_name} completado exitosamente: {mensaje}")                
-                if bot_name == "Bot 03":
+                if bot_name == "Bot 03 - Registrar TC paypal":
                     notificaion.send_notification(
                         f"Se registró tipo de cambio PayPal. Brecha: {cfg['valores']['brecha']} - "
                         f"TC Bloomberg: {vg.tipo_cambio_bloomberg} - "
@@ -113,7 +113,7 @@ def main():
         logger.info(f"Tiempo total de ejecución: {tiempo_total}")
         
         # Notificación de fin
-        notificaion.send_notification(f"Fin del proceso de orquestación. Tiempo total de ejecución: {tiempo_total}")
+        #notificaion.send_notification(f"Fin del proceso de orquestación. Tiempo total de ejecución: {tiempo_total}")
         logger.info("Fin del proceso ...")
 
 

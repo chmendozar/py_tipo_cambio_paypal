@@ -18,10 +18,10 @@ def bot_run(cfg, mensaje="Bot 03 - Super Admin"):
         venta = vg.tipo_cambio_venta
     
         # Leer URLs desde el archivo de configuración
-        base_url = config.get("url", "url_superadmin")
-        login_url = f"{base_url}{config.get('url', 'url_login')}"
-        exchange_rate_get_url = f"{base_url}{config.get('url', 'url_tc_paypal_get')}"
-        exchange_rate_save_url = f"{base_url}{config.get('url', 'url_tc_paypal_post')}"
+        base_url = cfg["url"]["url_superadmin"]
+        login_url = f"{base_url}{cfg['url'] ['url_login']}"
+        exchange_rate_get_url = f"{base_url}{cfg['url']['url_tc_paypal_get']}"
+        exchange_rate_save_url = f"{base_url}{cfg['url']['url_tc_paypal_post']}"
 
         # Crear una sesión para mantener las cookies
         session = requests.Session()
